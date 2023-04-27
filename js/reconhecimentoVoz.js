@@ -9,8 +9,8 @@ recognition.addEventListener("result", onSpeak);
 
 function onSpeak(event){
     const numberSpeak = event.results[0][0].transcript;
-    checkNumberSpeak(numberSpeak);
     showNumberOnTheScreen(numberSpeak);
+    checkNumberSpeak(numberSpeak);
 }
 
 function showNumberOnTheScreen(number){
@@ -19,4 +19,6 @@ function showNumberOnTheScreen(number){
         <span class="box">${number}</span>
     `
 }
+
+recognition.addEventListener("end", () => recognition.start());
 
