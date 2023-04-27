@@ -2,8 +2,20 @@ function checkNumberSpeak(numberSpeak){
     const numeroChute = +numberSpeak;
     
     if(isNumber(numeroChute)){
-        elementoChute.innerHTML += '<div>Valor Inválido</div>';
-        return;
+
+        if (numberSpeak.toUpperCase() === "GAME OVER") {
+
+            document.body.innerHTML =
+                `
+                <h2>Game Over!!!</h2>
+                <h3>Pressione o botão para jogar novamente</h3>
+                <button id="jogar-novamente" class="btn-jogar" >Jogar novamente</button>
+                `
+                document.body.style.backgroundColor = "black";
+        } else {
+            elementoChute.innerHTML += '<div>Valor Inválido</div>';
+            return;
+        }
     }
 
     if(numeroForMaiorOuMenorQueOValorPermitido(numeroChute)){
